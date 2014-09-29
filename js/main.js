@@ -28,6 +28,7 @@ $( document ).ready( function() {
 	$( "#frmod-page-wrapper" ).find(".button").on("click", function(event) {
 	
 		var btnId = $(this).attr('id');
+		console.log(btnId);
 		
 		//Handle video playlist clicks		
 		if (btnId.substring(0, 7) == "vid_btn") {
@@ -53,6 +54,9 @@ $( document ).ready( function() {
 			break;
 			case "bubble_green":
 				changeStop(5, this);
+			break;
+			case "btn_printables":
+				$( this ).parent().find(".printables-dropdown").toggle();
 			break;
 			
 		}

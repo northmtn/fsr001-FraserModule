@@ -201,8 +201,58 @@ body {
 
 .printables-button {
 	font-size: 37px;
-	width: 55%;
+	width: 60%;
 	margin: 0px auto;
+}
+.printables-dropdown {
+	width: 52%;
+	margin: 0px auto;
+	border: 3px solid;
+	border-top: none;
+}
+.printables-dropdown p {
+	color: #010101;
+	font-size: 14px;
+	font-family:Verdana;
+	line-height: 14px;
+}
+
+/*Circle Btns*/
+.round-button {
+	width:32%;
+	margin: 0px auto;
+	padding-bottom: 15px;
+}
+.round-button-circle {
+	width: 100%;
+	height:0;
+	padding-bottom: 100%;
+    border-radius: 50%;
+    overflow:hidden;
+    
+    background: gray; 
+    color: white;
+}
+.round-button-circle:hover {
+	background:#aaa;
+}
+.round-button i{
+	font-size: 46px;
+}
+.round-button h3 {
+	
+    display:block;
+	float:left;
+	width:100%;
+	padding-top:50%;
+    padding-bottom:50%;
+	line-height:26px;
+	margin-top:-35px;
+	text-align:center;
+	
+	font-size: 18px;
+	letter-spacing: 1px;
+	font-family: "canterbold";
 }
 
 .video-list {
@@ -263,9 +313,16 @@ body {
     background-color: #F6891E;
 }
 .orange .panel-heading:hover {
-    border-color: #Ff9f2c;
-    background-color: #Ff9f2c;
+    border-color: #FFB069;
+    background-color: #FFB069;
 }
+.orange.round-button-circle {
+    background: #F6891E; 
+}
+.orange.round-button-circle:hover {
+	background:#FFB069;
+}
+
 /* green */
 .green {
     border-color: #41B549;
@@ -276,12 +333,18 @@ body {
     background-color: #41B549;
 }
 .green .panel-heading:hover {
-    border-color: #4fBf4f;
-    background-color: #4fBf4f;
+    border-color: #6BD66E;
+    background-color: #6BD66E;
+}
+.green.round-button-circle {
+    background: #41B549; 
+}
+.green.round-button-circle:hover {
+	background:#6BD66E;
 }
 /* red */
 .red {
-    border-color: #d9534f;
+    border-color: #ED1C24;
 }
 .red .panel-heading {
     border-color: #ED1C24;
@@ -289,8 +352,14 @@ body {
     background-color: #ED1C24;
 }
 .red .panel-heading:hover {
-    border-color: #fc3039;
-    background-color: #fc3039;
+    border-color: #E8626C;
+    background-color: #E8626C;
+}
+.red.round-button-circle {
+    background: #ED1C24; 
+}
+.red.round-button-circle:hover {
+	background:#E8626C;
 }
 /* navy */
 .navy {
@@ -302,8 +371,14 @@ body {
     background-color: #114977;
 }
 .navy .panel-heading:hover {
-    border-color: #295d8c;
-    background-color: #295d8c;
+    border-color: #42779B;
+    background-color: #42779B;
+}
+.navy.round-button-circle {
+    background: #114977; 
+}
+.navy.round-button-circle:hover {
+	background:#42779B;
 }
 /* blue */
 .blue {
@@ -315,7 +390,13 @@ body {
     background-color: #18C0DB;
 }
 .blue .panel-heading:hover {
-    border-color: #21Cbe4;
-    background-color: #21Cbe4;
+    border-color: #2ED4E5;
+    background-color: #2ED4E5;
+}
+.blue.round-button-circle {
+    background: #18C0DB; 
+}
+.blue.round-button-circle:hover {
+	background:#2ED4E5;
 }
 
