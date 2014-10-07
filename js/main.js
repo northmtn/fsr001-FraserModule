@@ -2,6 +2,8 @@
 /* - FRASER MODULE - */
 /* - ------------- - */
 
+var mode = "desktop";
+
 //On Window Resize....
 $(function() {
     $(window).bind("load resize", function() {
@@ -11,10 +13,11 @@ $(function() {
         
         if (width < 768) {
             //updates for mobile
+			mode = "mobile";
             
         } else {
         	//updates for full version
-        	
+			mode = "desktop";
         }
 
     })
@@ -71,7 +74,7 @@ $( document ).ready( function() {
 		$(btnRef).addClass('active');
 		
 		$(".stop_container").hide();
-		$("#stop_"+stopId).fadeIn('slow');
+		$("#stop_"+stopId+"."+mode).fadeIn('slow');
 	
 	}	
 

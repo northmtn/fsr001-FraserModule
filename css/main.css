@@ -43,6 +43,14 @@ body {
 		padding-right: 7px;
 		padding-left: 7px;
 	}
+	
+	.line-horizontal{
+		display: inline;
+	}
+	
+	.line-vertical{
+		display: none;
+	}
 }
 
 /* Speech Bubble Nav */
@@ -433,6 +441,51 @@ body {
 }
 .blue .panel .video-list  i {
 	color: #18C0DB;
+}
+
+@media (max-width: 992px) {
+	.bubble-nav .panel, .bubble-nav .panel-heading {
+		height: auto;
+	}
+	.bubble-nav .panel-heading {
+		padding: 15px 25px;
+	}
+	
+	.huge{
+		float: left;
+		margin: 0;
+		padding: 20px 25px 0 0;
+		width: 200px;
+	}
+	
+	.line-horizontal{
+		display: none;
+	}
+	
+	.line-vertical{
+		display: inline;
+		float: left;
+		padding: 0 25px 0 0;
+	}
+	
+	.tri{
+		display: none;
+	}
+}
+
+@media (max-width: 556px) {
+	.huge{
+		float: left;
+		margin: 0;
+		padding: 20px 5px 0 0;
+		width: 180px;
+	}
+	.bubble-nav .panel-heading {
+		padding: 15px 5px;
+	}
+	.line-vertical{
+		padding: 0 5px 0 0;
+	}
 }
 
 
