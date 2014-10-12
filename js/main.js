@@ -13,10 +13,21 @@ $(function() {
         
         if (width < 768) {
             //updates for mobile
+            if (mode=="desktop") {
+            	//move content into mobile nav
+            	$(".stop_container.orange").insertAfter("#bubble_orange");
+            	$(".stop_container.navy").insertAfter("#bubble_navy");
+            	$(".stop_container.red").insertAfter("#bubble_red");
+            	$(".stop_container.blue").insertAfter("#bubble_blue");
+            	$(".stop_container.green").insertAfter("#bubble_green");
+            }
 			mode = "mobile";
             
         } else {
-        	//updates for full version
+        	if (mode=="mobile") {
+        		//move content outside of nav
+        		$(".stop_container").insertAfter( "#stop_intro" );
+        	}
 			mode = "desktop";
         }
 
@@ -74,7 +85,7 @@ $( document ).ready( function() {
 		$(btnRef).addClass('active');
 		
 		$(".stop_container").hide();
-		$("#stop_"+stopId+"."+mode).fadeIn('slow');
+		$("#stop_"+stopId).fadeIn('slow');
 	
 	}	
 
