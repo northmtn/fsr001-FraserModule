@@ -117,6 +117,7 @@ function onYouTubeIframeAPIReady() {
 	player = new YT.Player('player', {
 		height: '248',
 		width: '440',
+		playerVars: { 'autoplay': 0, 'controls': 2, 'rel':0, 'showInfo':0 },//Disable related videos and extra info
 		videoId: '1Z9vUwRoBWw',
 		events: {
 			'onReady': onPlayerReady
@@ -129,6 +130,8 @@ function onPlayerReady(event) {
 }
 
 function launchVideo( youtubeVidId ){
+	
 	console.log("launchVideo: "+youtubeVidId);
-	player.loadVideoById( youtubeVidId );
+	player.loadVideoByUrl( youtubeVidId );
+	
 }
