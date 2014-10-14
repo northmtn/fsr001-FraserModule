@@ -4,6 +4,7 @@
 
 var mode = "desktop";
 var currentStopColor = "gray";
+var curStopIndex = -1;
 
 //On Window Resize....
 $(function() {
@@ -94,7 +95,10 @@ $( document ).ready( function() {
 		$(".stop_container").hide();
 		$("#stop_"+stopId).fadeIn('slow');
 		
+		pauseCurrentPlayer();
+		
 		currentStopColor = stopColor;
+		curStopIndex = stopId-1;
 	
 	}	
 	
@@ -106,32 +110,49 @@ $( document ).ready( function() {
 
 
 
-//YT Video Player
+//YouTube Video Player
 var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-var player;
+var ytplayers = [];
+var playerInfoList = [	{id:'orange-player',height:'248',width:'440',videoId:''},
+						{id:'navy-player',height:'248',width:'440',videoId:''},
+						{id:'red-player',height:'248',width:'440',videoId:''},
+						{id:'blue-player',height:'248',width:'440',videoId:''},
+						{id:'green-player',height:'248',width:'440',videoId:''} ];
+
 function onYouTubeIframeAPIReady() {
-	player = new YT.Player('player', {
-		height: '248',
-		width: '440',
-		playerVars: { 'autoplay': 0, 'controls': 2, 'rel':0, 'showInfo':0 },//Disable related videos and extra info
-		videoId: '1Z9vUwRoBWw',
-		events: {
-			'onReady': onPlayerReady
-		}
-	});
+
+	if(typeof playerInfoList === 'undefined') return; 
+	
+	for(var i = 0; i < playerInfoList.length; i++) {
+		var curplayer = createPlayer(playerInfoList[i]);
+		ytplayers.push(curplayer);
+	}
+
+}
+function createPlayer(playerInfo) {
+
+  return new YT.Player(playerInfo.id, {
+     height: playerInfo.height,
+     width: playerInfo.width,
+     videoId: playerInfo.videoId,
+     playerVars: { 'autoplay': 0, 'controls': 2, 'rel':0, 'showInfo':0 } //Disable related videos and extra info
+  });
+  
 }
 
-function onPlayerReady(event) {
-	console.log("player ready");
+function pauseCurrentPlayer () {
+	
+	if (curStopIndex > -1) ytplayers[curStopIndex].pauseVideo();
+	
 }
 
 function launchVideo( youtubeVidId ){
 	
-	console.log("launchVideo: "+youtubeVidId);
-	player.loadVideoByUrl( youtubeVidId );
+	console.log("launchVideo: " + youtubeVidId);
+	ytplayers[curStopIndex].loadVideoByUrl( youtubeVidId );
 	
 }

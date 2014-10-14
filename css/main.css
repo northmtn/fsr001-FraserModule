@@ -290,7 +290,7 @@ body {
 	margin: 0px auto;
 }
 
-.video-player-container #player {
+.video-player-container .ytplayer {
     margin-top: 14px;
     margin-top: 26px;
 }
