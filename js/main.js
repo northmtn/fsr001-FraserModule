@@ -3,6 +3,7 @@
 /* - ------------- - */
 
 var mode = "desktop";
+var currentStopColor = "gray";
 
 //On Window Resize....
 $(function() {
@@ -55,22 +56,28 @@ $( document ).ready( function() {
 		//All other btns
 		switch ( btnId ) {
 			case "bubble_orange":
-				changeStop(1, this);
+				changeStop(1, "orange", this);
 			break;
 			case "bubble_navy":
-				changeStop(2, this);
+				changeStop(2, "navy", this);
 			break;
 			case "bubble_red":
-				changeStop(3, this);
+				changeStop(3, "red", this);
 			break;
 			case "bubble_blue":
-				changeStop(4, this);
+				changeStop(4, "blue", this);
 			break;
 			case "bubble_green":
-				changeStop(5, this);
+				changeStop(5, "green", this);
 			break;
 			case "btn_printables":
 				$( this ).parent().find(".printables-dropdown").toggle();
+			break;
+			case "btn_dropdown_print":
+				//Print 5 Things to know
+				//TODO - populate 5Things printable with current section's content
+				$("#5_things_to_know").removeClass("orange red navy green blue").addClass( currentStopColor );
+				$("#5_things_to_know").printThis();
 			break;
 			
 		}
@@ -79,16 +86,18 @@ $( document ).ready( function() {
 	
 
 	//Change current stop and display
-	function changeStop( stopId, btnRef ) {
+	function changeStop( stopId, stopColor, btnRef ) {
 	
 		$(".bubble-nav .button").removeClass('active');
 		$(btnRef).addClass('active');
 		
 		$(".stop_container").hide();
 		$("#stop_"+stopId).fadeIn('slow');
+		
+		currentStopColor = stopColor;
 	
 	}	
-
+	
 	//Set initial view
 	$(".stop_container").hide();
 	$("#stop_intro").show();
@@ -106,7 +115,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 function onYouTubeIframeAPIReady() {
 	player = new YT.Player('player', {
-		height: '270',
+		height: '248',
 		width: '440',
 		videoId: '1Z9vUwRoBWw',
 		events: {

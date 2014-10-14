@@ -291,8 +291,20 @@ body {
 }
 
 .video-player-container #player {
-	margin-top: 14px;
+    margin-top: 14px;
+    margin-top: 26px;
 }
+
+/* Printables */
+.printable {
+	text-align: center;
+	margin: 0px auto;
+	width: 612px;
+}
+.cutout {
+	border: 2px dashed gray;
+}
+
 
 /* Stop/Section Colors */
 /* gray (intro) */
