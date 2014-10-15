@@ -4,7 +4,7 @@
 
 var mode = "desktop";
 var currentStopColor = "gray";
-var curStopIndex = -1;
+var curStopId = -1;
 
 //On Window Resize....
 $(function() {
@@ -75,10 +75,7 @@ $( document ).ready( function() {
 				$( this ).parent().find(".printables-dropdown").toggle();
 			break;
 			case "btn_dropdown_print":
-				//Print 5 Things to know
-				//TODO - populate 5Things printable with current section's content
-				$("#5_things_to_know").removeClass("orange red navy green blue").addClass( currentStopColor );
-				$("#5_things_to_know").printThis();
+				printFiveThingsToKnow();
 			break;
 			
 		}
@@ -88,7 +85,7 @@ $( document ).ready( function() {
 
 	//Change current stop and display
 	function changeStop( stopId, stopColor, btnRef ) {
-	
+		
 		$(".bubble-nav .button").removeClass('active');
 		$(btnRef).addClass('active');
 		
@@ -98,9 +95,30 @@ $( document ).ready( function() {
 		pauseCurrentPlayer();
 		
 		currentStopColor = stopColor;
-		curStopIndex = stopId-1;
+		curStopId = stopId;
 	
-	}	
+	}
+	
+	function printFiveThingsToKnow() {
+				
+		//Set text
+		var printDiv = $("#hidden_printables_container #5_things_to_know");
+		var titleTxt = $("#bubble_"+currentStopColor).find(".huge").first().text();
+		var fiveThings = $($("#stop_"+curStopId).find(".printables-dropdown p").get().reverse());
+				
+		$(printDiv).find("h3").text(titleTxt);
+		$(printDiv).find("p").remove();//clear previous list
+		$(fiveThings).each( function(){
+			$(this).clone().insertAfter( $(printDiv).find("h3") );
+		});
+		
+		//Set style
+		$(printDiv).removeClass("orange red navy green blue").addClass( currentStopColor );
+		
+		//Print
+		$(printDiv).printThis();
+	
+	}
 	
 	//Set initial view
 	$(".stop_container").hide();
@@ -146,13 +164,13 @@ function createPlayer(playerInfo) {
 
 function pauseCurrentPlayer () {
 	
-	if (curStopIndex > -1) ytplayers[curStopIndex].pauseVideo();
+	if (curStopId > -1) ytplayers[curStopId-1].pauseVideo();
 	
 }
 
 function launchVideo( youtubeVidId ){
 	
 	console.log("launchVideo: " + youtubeVidId);
-	ytplayers[curStopIndex].loadVideoByUrl( youtubeVidId );
+	ytplayers[curStopId-1].loadVideoByUrl( youtubeVidId );
 	
 }
