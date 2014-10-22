@@ -222,7 +222,7 @@
                     </div>
                     <!-- /.panel -->
                     <div class="panel panel-default">
-                        <div class="panel-heading centered activities-button button">
+                        <div class="panel-heading centered activities-button button" id="pop-orange-tool-popup">
                             QUESTIONS TO THINK ABOUT
                         </div>
   
@@ -231,6 +231,80 @@
                    
                 </div>
                 <!-- /.col-lg-7 col-md-7 -->
+                
+                <div id="orange-tool-popup" class="tool-popup col-lg-12 col-md-12">
+                	<div class="panel panel-default">
+                		
+                		<div class="tool-content">
+                			<p>We’ll talk about your child’s social, emotional, physical, and academic needs. Click on each category to see questions and topics that may be covered.</p>
+                			<div class="tool-left">
+                				<div id="tool-orange-social" class="button active">
+                					SOCIAL
+                				</div>
+                				<div id="tool-orange-academic" class="button">
+                					ACADEMIC
+                				</div>
+                				<div id="tool-orange-physical" class="button">
+                					PHYSICAL
+                				</div>
+                				<div id="tool-orange-emotional" class="button">
+                					EMOTIONAL
+                				</div>
+                			</div>
+                			
+                			<div id="tool-1-tri"></div>
+                			
+                			<div class="info-display">
+                				<div id="info-social">
+                					<p>Is your child able to communicate his/her wants and needs?</p>
+                					<p>Does your child speak or tend to point to things to communicate?</p>
+                					<p>Is your child able to hold a conversation with friends?</p>
+                					<p>Does he/she make eye contact?</p>
+                					<p>Does your child talk with adults?</p>
+                					<p>Is your child interested in other children?</p>
+                					<p>Does your child prefer to be with parents/adults?</p>
+                					<p>Does your child play together or separately when around other children?</p>
+                				</div>
+                				<div id="info-academic" style="display: none;">
+                					<p>How is your child doing in school?</p>
+                					<p>Does your child have an IEP?</p>
+                					<p>Do you feel like your child is behind other children his/her age?</p>
+                					<p>Does your child participate in the classroom?</p>
+                					<p>Does your child have trouble concentrating in school?</p>
+                					<p>How does your child do taking tests?</p>
+                					<p>Is he or she able to complete homework?</p>
+                					<p>Is your child excited about school?</p>
+                				</div>
+                				<div id="info-physical" style="display: none;">
+	                				<p>What health issues does your child have?</p>
+	                				<p>Does your child have allergies?</p>
+	                				<p>Is he or she frequently ill?</p>
+	                				<p>Does he or she have trouble eating, sleeping, or toileting?</p>
+	                				<p>Does your child have physical coordination issues?</p>
+	                				<p>Does your child have high or low energy?</p>
+	                				<p>Does your child show repetitive behaviors?</p>
+                				</div>
+                				<div id="info-emotional" style="display: none;">
+                					<p>Does your child have big emotions or does it seem like they feel very little?</p>
+                					<p>Does your child have trouble controlling his/her emotions? What does that look like?</p>
+                					<p>Does your child have what you would call “temper tantrums”? If so, how long and how often do they occur both at home and in school?</p>
+                					<p>Does your child get stuck on things and have a hard time moving on to something else?</p>
+                					<p>Can you tell us about any other behavior concerns?</p>
+                					<p>How does your child handle change or transitions?</p>
+                					<p>Does your child have trouble separating from a parent or caregiver?</p>
+                				</div>
+                			</div>
+                			
+                		</div>
+
+						<div id="btn_popup_close" class="round-button button">
+							<div class="round-button-circle">
+								<h3 class="round-button"><i class="fa fa-times fa-fw"></i></h3>
+							</div>
+						</div>    
+					</div>           	
+                </div>
+                
             </div>
             <!-- /.row -->
             
@@ -301,7 +375,7 @@
                     </div>
                     <!-- /.panel -->
                     <div class="panel panel-default">
-                        <div class="panel-heading centered activities-button button">
+                        <div class="panel-heading centered activities-button button" id="pop-navy-tool-popup">
                             THINGS TO DO NOW
                         </div>
   
@@ -309,6 +383,83 @@
                     <!-- /.panel -->
                    
                 </div>
+                
+                <!-- Tool -->
+                <div id="navy-tool-popup" class="tool-popup col-lg-12 col-md-12">
+                	<div class="panel panel-default">
+                		
+                		<div class="tool-content">
+                			
+	                		<div id="view-main" class="container">
+	                			<h3>THINGS TO DO NOW</h3>
+	                			<p>As you anticipate and prepare for your first meeting with Fraser, here are a few helpful ideas to keep in mind. Click each button.</p>
+	                			<div id="things-journal" class="choice button" >
+	                				<img src="img/keepAJournal.png"/>
+	                				<p>Keep a Journal</p>
+	                			</div>
+	                			<div id="things-tips" class="choice button">
+	                				<img src="img/considertips.png"/>
+	                				<p>Consider These Tips</p>
+	                			</div>
+	                		</div>
+	       			
+                			<div id="view-journal" class="container" style="display: none;">
+                				<h3>KEEP A JOURNAL</h3>
+                				<div class="left">
+                					<ul>
+                						<li>Start keeping a journal of issues that come up from day to day with your child, whether it is eating, sleeping, tantrums, or ways you notice that they are different from other children.
+                						</li>
+                						<li>Note situations that are of concern to your child. Does his or her own occasionally volatile behavior trouble them? Do they wish they could communicate more
+                						easily? Do they have trouble
+                						understanding and interpreting social situations?
+                						</li>
+                					</ul>
+                				</div>
+                				<div class="right">
+                					<ul>
+                						<li>Collect information for your first meeting such as how many words your child knows, etc. etc.
+                						</li>
+                						<li>Note your child’s strengths and needs – the obvious and the more subtle ones.
+                						</li>
+                					</ul>
+                					<div class="button" id="things-close"><h3>CLOSE</h3></div>
+                				</div>
+                			</div>
+                			
+                			<div id="view-tips" class="container" style="display: none;">
+                				<h3>CONSIDER THESE TIPS</h3>
+                				<div class="tips_container">
+                					<p>Download and print these informative PDFs, which can help address some of your concerns.</p>
+                					<div class="tip">
+                						<img src="img/smallBulb.png"/>
+                						<a href="#"><p>Keep a Journal</p></a>
+                					</div>
+                					<div class="tip">
+                						<img src="img/smallBulb.png"/>
+                						<a href="#"><p>Tips for Potty Training</p></a>
+                					</div>
+                					<div class="tip">
+                						<img src="img/smallBulb.png"/>
+                						<a href="#"><p>Making Outings Less Stressful</p></a>
+                					</div>
+                					<div class="tip">
+                						<img src="img/smallBulb.png"/>
+                						<a href="#"><p>Using Music Therapy to Reach Developmental Goals</p></a>
+                					</div>
+                				</div>
+                				<div class="button" id="things-close"><h3>CLOSE</h3></div>
+                			</div>
+                			
+                		</div>
+
+						<div id="btn_popup_close" class="round-button button">
+							<div class="round-button-circle">
+								<h3 class="round-button"><i class="fa fa-times fa-fw"></i></h3>
+							</div>
+						</div>    
+					</div>           	
+                </div>
+                
 			</div>
 			<!-- /.row -->
 			
@@ -370,7 +521,7 @@
                                     <i class="fa fa-play-circle fa-fw"></i> “I learned that this is not only a safe place to be honest, but I felt understood and supported.”
                                 </a>
                                 <a id="vid_btn" data-vid-id="http://www.youtube.com/v/AHAEHbuGkng" class="button list-group-item">
-                                    <i class="fa fa-play-circle fa-fw"></i> “What’s going to happen when my child is older?  Will they marry or be able to live independently?”
+                                    <i class="fa fa-play-circle fa-fw"></i> “What’s going to happen when my child is older?  Will he marry? Will she be able to live independently?”
                                 </a>
                                 <a id="vid_btn" data-vid-id="http://www.youtube.com/v/2lp61RbV5Y8" class="button list-group-item">
                                     <i class="fa fa-play-circle fa-fw"></i> “I’m concerned about attaching a label to my child.”
@@ -382,7 +533,7 @@
                     </div>
                     <!-- /.panel -->
                     <div class="panel panel-default">
-                        <div class="panel-heading centered activities-button button">
+                        <div class="panel-heading centered activities-button button" id="pop-red-tool-popup">
                             HELPFUL DETAILS
                         </div>
   
@@ -390,6 +541,34 @@
                     <!-- /.panel -->
                    
                 </div>
+                
+                <!-- Tool -->
+                <div id="red-tool-popup" class="tool-popup col-lg-12 col-md-12">
+                	<div class="panel panel-default">
+                		
+                		<div class="tool-content">
+       			
+                			<div class="info-display">
+                				<h3>HELPFUL DETAILS BEFORE YOU ARRIVE</h3>
+                				<ul>
+                					<li>In order to make the best use of our time together and to have an open conversation about your concerns regarding your child, we respectfully request that you arrange for childcare for the child we are meeting to discuss as well as any other children. This meeting is for parents and/or caregivers only. Thank you.</li>
+                					<li>Maps to all locations are available at http://fraser.org/About-Fraser/Locations</li>
+                					<li>We have free guest parking at all of our locations, however, spaces are limited at our Minneapolis location. If you find the need to park in a “Reserved Only” spot, please advise the receptionist.</li>
+                					<li>If you need directions or get lost, please call us at 612-767-7222.</li>
+                					<li>Please bring all assessments...</li>
+                				</ul>
+                			</div>
+                			
+                		</div>
+
+						<div id="btn_popup_close" class="round-button button">
+							<div class="round-button-circle">
+								<h3 class="round-button"><i class="fa fa-times fa-fw"></i></h3>
+							</div>
+						</div>    
+					</div>           	
+                </div>
+                
 			</div>
 			<!-- /.row -->
 			
@@ -448,10 +627,10 @@
                                     <i class="fa fa-play-circle fa-fw"></i> “Who should come to this meeting?”
                                 </a>
                                 <a id="vid_btn" data-vid-id="http://www.youtube.com/v/F79THWazKOU" class="button list-group-item">
-                                    <i class="fa fa-play-circle fa-fw"></i> “How should I prepare my younger child for this visit?”
+                                    <i class="fa fa-play-circle fa-fw"></i> “How should I prepare a young child for this visit?”
                                 </a>
                                 <a id="vid_btn" data-vid-id="http://www.youtube.com/v/b1TXpseuaD4" class="button list-group-item">
-                                    <i class="fa fa-play-circle fa-fw"></i> “How should I prepare my older child for this visit?”
+                                    <i class="fa fa-play-circle fa-fw"></i> “How should I prepare an older child for this visit?”
                                 </a>
                                 <a id="vid_btn" data-vid-id="http://www.youtube.com/v/et_HK95f7xg" class="button list-group-item">
                                     <i class="fa fa-play-circle fa-fw"></i> “I am concerned that my child may not perform well enough.”
@@ -466,7 +645,7 @@
                     </div>
                     <!-- /.panel -->
                     <div class="panel panel-default">
-                        <div class="panel-heading centered activities-button button">
+                        <div class="panel-heading centered activities-button button" id="pop-blue-tool-popup">
                             PREPARING YOUR CHILD FOR A VISIT
                         </div>
   
@@ -474,6 +653,93 @@
                     <!-- /.panel -->
                    
                 </div>
+                
+                <!-- Tool -->
+                <div id="blue-tool-popup" class="tool-popup col-lg-12 col-md-12">
+                	<div class="panel panel-default">
+                		
+                		<div class="tool-content">
+                		
+	                		<div class="tool-content">
+	                			
+            					<div class="info-display left">
+            						<h3>PREPARING YOUR CHILD FOR A VISIT</h3>
+            						<p>Describe the visit to your child using words such as “play time, it’s like pre-school or daycare, a visit, or meeting.” Avoid words such as “evaluation, test, appointment, or assessment.”<br/><br/>
+            						Tell your child he/she will get to play with toys such as cars, games, dolls, and bubbles.<br/><br/>
+            						Let your child know it will NOT be like a doctor visit and there will be no shots. Bring items that comfort your child.<br/><br/>
+            						Let your child know you will stay at Fraser with him or her.<br/><br/>
+            						Let your child know the adults will mostly talk and he or she will talk and do things. Bathrooms and drinking fountains are nearby.<br/><br/>
+            						Let older children know the purpose of the visit is to learn more about how they solve problems, how they learn, what they like and dislike, how they like to communicate and be communicated with, about strengths and challenges, and what environments they prefer.
+            						</p>
+            						
+            						<div class="button">
+            							<h3><i class="fa fa-print fa-fw"></i><br/>PRINT</h3>
+            						</div>
+            						
+            					</div>
+            					
+            					<div class="info-display right">
+            						<h3>PRINTABLE PHOTO CARD</h3>
+            						<p>Knowing what things look like and what to expect can be helpful for your child. Click on the photo icons or names you want to add to a printable card to review with your child. Roll over photo to enlarge.
+            						</p>
+            						
+            						<div id="thumb-grid">
+            							<div class="thumb">
+            								<img src="" alt""/>
+            								<p>Fraser Anoka</p>
+            							</div>
+            							<div class="thumb">
+            								<img src="" alt""/>
+            								<p>Fraser Bloomington</p>
+            							</div>
+            							<div class="thumb">
+            								<img src="" alt""/>
+            								<p>Fraser Eden Prairie</p>
+            							</div>
+            							<div class="thumb">
+            								<img src="" alt""/>
+            								<p>Fraser Minneapolis</p>
+            							</div>
+            							<div class="thumb">
+            								<img src="" alt""/>
+            								<p>Toys</p>
+            							</div>
+            							<div class="thumb">
+            								<img src="" alt""/>
+            								<p>Sensory Toys</p>
+            							</div>
+            							<div class="thumb">
+            								<img src="" alt""/>
+            								<p>Fraser staff and child</p>
+            							</div>
+            							<div class="thumb">
+            								<img src="" alt""/>
+            								<p>Parent and child at Fraser</p>
+            							</div>
+            							<div class="thumb">
+            								<img src="" alt""/>
+            								<p>Snack Time</p>
+            							</div>
+            						</div>
+            						
+            						<div class="button">
+            							<h3><i class="fa fa-print fa-fw"></i><br/>PRINT</h3>
+            						</div>
+            						
+            					</div>
+            					
+            				</div>
+
+                		</div>
+
+						<div id="btn_popup_close" class="round-button button">
+							<div class="round-button-circle">
+								<h3 class="round-button"><i class="fa fa-times fa-fw"></i></h3>
+							</div>
+						</div>    
+					</div>           	
+                </div>
+                                
 			</div>
 			<!-- /.row -->
 			
@@ -525,19 +791,19 @@
                         	<h3 class="colored centered"> YOU MIGHT BE THINKING...</h3>
                         	<p class="centered tag">Click on each quote.</p>
                             <div class="list-group video-list">
-                                <a id="vid_btn" data-vid-id="http://www.youtube.com/v/d71Oxo6BbMU" class="button list-group-item">
+                                <a id="vid_btn" data-vid-id="http://www.youtube.com/v/yZG0X4w5GAA" class="button list-group-item">
                                     <i class="fa fa-play-circle fa-fw"></i> “What will this meeting be like?”
                                 </a>
-                                <a id="vid_btn" data-vid-id="http://www.youtube.com/v/L2p9dRl0yYo?version=3" class="button list-group-item">
+                                <a id="vid_btn" data-vid-id="http://www.youtube.com/v/x_vUKDwMS70" class="button list-group-item">
                                     <i class="fa fa-play-circle fa-fw"></i> “I’m still hoping they’ll say it’s just a phase. ”
                                 </a>
-                                <a id="vid_btn" data-vid-id="http://www.youtube.com/v/d71Oxo6BbMU?version=3" class="button list-group-item">
+                                <a id="vid_btn" data-vid-id="http://www.youtube.com/v/cF6oYqEe5Cw" class="button list-group-item">
                                     <i class="fa fa-play-circle fa-fw"></i> “How do we move forward from here?”
                                 </a>
-                                <a id="vid_btn" data-vid-id="http://www.youtube.com/v/d71Oxo6BbMU" class="button list-group-item">
+                                <a id="vid_btn" data-vid-id="http://www.youtube.com/v/3a2H65goWP4" class="button list-group-item">
                                     <i class="fa fa-play-circle fa-fw"></i> “A ‘team’ approach sounds overwhelming.”
                                 </a>
-                                <a id="vid_btn" data-vid-id="http://www.youtube.com/v/L2p9dRl0yYo" class="button list-group-item">
+                                <a id="vid_btn" data-vid-id="http://www.youtube.com/v/Yhq1lluYMXU" class="button list-group-item">
                                     <i class="fa fa-play-circle fa-fw"></i> “I want to feel hopeful.”
                                 </a>
                             </div>
@@ -547,14 +813,14 @@
                     </div>
                     <!-- /.panel -->
                     <div class="panel panel-default">
-                        <div class="panel-heading centered activities-button button">
+                        <div class="panel-heading centered activities-button button" id="pop-green-tool-popup-1">
                             CARING FOR YOU
                         </div>
   
                     </div>
                     <!-- /.panel -->
                     <div class="panel panel-default">
-                      <div class="panel-heading centered activities-button button">
+                      <div class="panel-heading centered activities-button button" id="pop-green-tool-popup-2">
                           NEXT STEPS
                       </div>
 
@@ -562,9 +828,65 @@
 	                <!-- /.panel -->
 
                 </div>
+                
+                <!-- Tool -->
+                <div id="green-tool-popup-1" class="tool-popup col-lg-12 col-md-12">
+                	<div class="panel panel-default">
+                		
+                		<div class="tool-content">
+       			
+                			<div class="info-display">
+                				<h3>CARING FOR YOU</h3>
+                				<p>It’s a good idea to spend some time reflecting on what will work best for you before, during, and after the visit. For example:</p>
+                				<ul>
+                					<li>Do you have a supportive person to attend the session with you? If you don’t have a spouse or partner who can attend with you, consider bringing a friend.</li>
+                					<li>You might want some time take in and process the feedback after the meeting and may want to avoid rushing back to work, another appointment, or activity. If possible, set aside some time after the visit to reflect and gather your thoughts.</li>
+                					<li>Remember that this meeting is not about a diagnosis. It’s about helping your child grow and develop.</li>
+                					<li>Try to stay focused on the here and now. Your child’s needs will change over time.</li>
+                					<li>Fraser is there to support you and your family.</li>
+                				</ul>
+                			</div>
+                			
+                		</div>
+
+						<div id="btn_popup_close" class="round-button button">
+							<div class="round-button-circle">
+								<h3 class="round-button"><i class="fa fa-times fa-fw"></i></h3>
+							</div>
+						</div>    
+					</div>           	
+                </div>
+                
+                <!-- Tool -->
+                <div id="green-tool-popup-2" class="tool-popup col-lg-12 col-md-12">
+                	<div class="panel panel-default">
+                		
+                		<div class="tool-content">
+       			
+                			<div class="info-display">
+                				<h3>NEXT STEPS AFTER THIS MEETING</h3>
+                				<p>You might receive a lot of information that is new to you at this meeting. To help you organize and prioritize, here is a list of some common “next steps” depending on your situation:</p>
+                				<ul>
+                					<li>Contact your school district.</li>
+                					<li>Contact your pediatrician.</li>
+                					<li>Connect with Fraser’s Parent Support network. (see <a href="#">www.fraser.org</a>)</li>
+                					<li>Contact a county social worker.</li>
+                				</ul>
+                			</div>
+                			
+                		</div>
+
+						<div id="btn_popup_close" class="round-button button">
+							<div class="round-button-circle">
+								<h3 class="round-button"><i class="fa fa-times fa-fw"></i></h3>
+							</div>
+						</div>    
+					</div>           	
+                </div>
+                
 			</div>
 			<!-- /.row -->
-                      
+
         </div>
         <!-- /#frmod-page-wrapper -->
         
@@ -601,6 +923,7 @@
     <script src="js/plugins/printThis/printThis.js" type="text/javascript"></script>
 
     <!-- Custom Theme JavaScript -->
+    <script src="js/frmod-videos.js"></script>
     <script src="js/main.js"></script>
 
 </body>

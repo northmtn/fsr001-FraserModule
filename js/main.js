@@ -49,11 +49,50 @@ $( document ).ready( function() {
 		//Handle video playlist clicks		
 		if (btnId.substring(0, 7) == "vid_btn") {
 		
+			$(this).addClass("selected").siblings().removeClass("selected");
+			
 			var vidId = $(this).attr('data-vid-id');
 			launchVideo( vidId );
 			return;
 		}
 		
+		//Handle things-to-do popup navigation
+		if (btnId.substring(0, 7) == "things-") {
+
+			if (btnId == 'things-close') $("#navy-tool-popup #view-main").show().siblings('.container').hide();
+			if (btnId == 'things-tips') $("#navy-tool-popup #view-tips").show().siblings('.container').hide();
+			if (btnId == 'things-journal') $("#navy-tool-popup #view-journal").show().siblings('.container').hide();
+			return;
+			
+		}
+		
+		//Handle tool show/hide buttons
+		if (btnId.substring(0, 4) == "pop-") {
+		
+			var popupId = btnId.substring(4);
+			$("#"+popupId).fadeIn();
+			return;
+			
+		}
+		
+		//Handle tool popup clicks	
+		if (btnId.substring(0, 11) == "tool-orange") {
+			
+			//show info
+			var infoSection = btnId.substring(14);
+			$("#orange-tool-popup .info-display").children("div").hide();
+			$("#orange-tool-popup .info-display").children("div[id='info-"+infoSection+"']").show();
+			
+			//move tri
+			var btnTop = parseInt($("#orange-tool-popup #"+btnId).position().top) + 12;
+			$("#orange-tool-popup #tool-1-tri").css("top", btnTop);
+			
+			//activate btn
+			$("#orange-tool-popup .button").removeClass('active');
+			$("#orange-tool-popup #"+btnId).addClass('active');
+	
+		}
+				
 		//All other btns
 		switch ( btnId ) {
 			case "bubble_orange":
@@ -77,7 +116,13 @@ $( document ).ready( function() {
 			case "btn_dropdown_print":
 				printFiveThingsToKnow();
 			break;
+			case "btn_popup_close":
+				//Close open popup
+				$(this).closest('.tool-popup').hide();
+			break;
+			default:
 			
+			break;
 		}
 		
 	});
@@ -98,7 +143,7 @@ $( document ).ready( function() {
 		curStopId = stopId;
 	
 	}
-	
+		
 	function printFiveThingsToKnow() {
 				
 		//Set text
@@ -126,51 +171,3 @@ $( document ).ready( function() {
 
 });
 
-
-
-//YouTube Video Player
-var tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-var ytplayers = [];
-var playerInfoList = [	{id:'orange-player',height:'248',width:'440',videoId:''},
-						{id:'navy-player',height:'248',width:'440',videoId:''},
-						{id:'red-player',height:'248',width:'440',videoId:''},
-						{id:'blue-player',height:'248',width:'440',videoId:''},
-						{id:'green-player',height:'248',width:'440',videoId:''} ];
-
-function onYouTubeIframeAPIReady() {
-
-	if(typeof playerInfoList === 'undefined') return; 
-	
-	for(var i = 0; i < playerInfoList.length; i++) {
-		var curplayer = createPlayer(playerInfoList[i]);
-		ytplayers.push(curplayer);
-	}
-
-}
-function createPlayer(playerInfo) {
-
-  return new YT.Player(playerInfo.id, {
-     height: playerInfo.height,
-     width: playerInfo.width,
-     videoId: playerInfo.videoId,
-     playerVars: { 'autoplay': 0, 'controls': 2, 'rel':0, 'showInfo':0 } //Disable related videos and extra info
-  });
-  
-}
-
-function pauseCurrentPlayer () {
-	
-	if (curStopId > -1) ytplayers[curStopId-1].pauseVideo();
-	
-}
-
-function launchVideo( youtubeVidId ){
-	
-	console.log("launchVideo: " + youtubeVidId);
-	ytplayers[curStopId-1].loadVideoByUrl( youtubeVidId );
-	
-}
