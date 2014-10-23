@@ -645,8 +645,42 @@ body {
 		padding: 0 25px 0 0;
 	}
 	
+	.stop_container{
+		padding-top: 0px;
+	}
+	
+	.left-col h3.colored.centered, .video-player-container,
+	.panel .right-col h3, .panel .right-col .tag, .col-md-7{
+		display: none;
+	}
+	
 	.tri{
 		display: none;
+	}
+	.orange, .orange .video-list, .orange .printables-dropdown{
+		border: none;
+	}
+	.video-list {
+		padding: 0 15px;
+	}
+	.video-list i {
+		float: left;
+		margin-right: 20px;
+	}
+	#vid_btn{
+		text-align: left;
+	}
+	
+	.printables-button, .activities-button{
+		font-size: 28px;
+		border-radius: 0px !important;
+		margin-left: 35px;
+		margin-right: 35px;
+		width:auto;
+		line-height: 1em;
+	}
+	.printables-button i{
+		display:none;
 	}
 }
 
