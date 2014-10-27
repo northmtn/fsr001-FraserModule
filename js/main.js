@@ -23,14 +23,12 @@ $(function() {
             	$(".stop_container.blue").insertAfter("#bubble_blue");
             	$(".stop_container.green").insertAfter("#bubble_green");
 				
+				$(".printables-dropdown").hide();
+				
 				$(".col-md-7").each(function(){
 					$printable = $(this).find(".panel-default").last();
 					$printable.insertBefore($(this).next(".col-md-5").find(".panel-default").last());
 				});
-				/*$(".printables-button").each(function(){
-					var $activity = ($(this).parent().parent().next(".col-md-5").find(".activities-button").first());
-					//$(this).insertBefore($activity);
-				});*/
             }
 			mode = "mobile";
             
@@ -42,6 +40,8 @@ $(function() {
 					$printable = $(this).find(".panel-default:eq( 1 )");
 					$(this).parent().find(".col-md-7").first().append($printable);
 				});
+				
+				$(".mobile-window-container").remove();
 				
         	}
 			mode = "desktop";
@@ -58,6 +58,7 @@ $( document ).ready( function() {
 	$( "#frmod-page-wrapper" ).find(".button").on("click", function(event) {
 	
 		var btnId = $(this).attr('id');
+		var title = $(this).attr("title");
 		console.log(btnId);
 		
 		//Handle video playlist clicks		
@@ -84,9 +85,14 @@ $( document ).ready( function() {
 		if (btnId.substring(0, 4) == "pop-") {
 		
 			var popupId = btnId.substring(4);
-			$("#"+popupId).fadeIn();
-			return;
 			
+			if(mode == "desktop"){
+				$("#"+popupId).fadeIn();
+				return;
+			} else {
+				createMobileWindow(title, $("#"+popupId+"-mobile").html());
+				return;
+			}
 		}
 		
 		//Handle tool popup clicks	
@@ -125,7 +131,11 @@ $( document ).ready( function() {
 				changeStop(5, "green", this);
 			break;
 			case "btn_printables":
-				$( this ).parent().find(".printables-dropdown").toggle();
+				if(mode == "desktop"){
+					$( this ).parent().find(".printables-dropdown").toggle();
+				} else{
+					createMobileWindow("5 Things To Know:", $( this ).parent().find(".printables-dropdown").html());
+				}
 			break;
 			case "btn_dropdown_print":
 				printFiveThingsToKnow();
@@ -177,6 +187,14 @@ $( document ).ready( function() {
 		//Print
 		$(printDiv).printThis();
 	
+	}
+	
+	function createMobileWindow(title, html){
+		$("#frmod-page-wrapper").prepend('<div class="mobile-window-container"><div class="mobile-window"><div class="btn-window-close">X</div><h3>'+title+'</h3>' + html + '</div></div>');
+		
+		$(".btn-window-close").on("click", function(event){
+			$(".mobile-window-container").remove();
+		});
 	}
 	
 	//Set initial view

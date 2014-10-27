@@ -218,7 +218,7 @@ body {
 	border: 3px solid;
 	border-top: none;
 }
-.printables-dropdown p {
+.printables-dropdown p, .mobile-window p, .mobile-window ul {
 	color: #010101;
 	font-size: 14px;
 	font-family:Verdana;
@@ -620,6 +620,14 @@ body {
 	border-color: #18C0DB;
 }
 
+.mobile-window-container{
+	display: none;
+}
+
+.hidden{
+	display: none;
+}
+
 @media (max-width: 992px) {
 	.bubble-nav .panel, .bubble-nav .panel-heading {
 		height: auto;
@@ -679,8 +687,56 @@ body {
 		width:auto;
 		line-height: 1em;
 	}
-	.printables-button i{
+	.printables-button i, #btn_dropdown_print{
 		display:none;
+	}
+	.mobile-window-container{
+		display:block;
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: rgba(0,0,0,0.8);
+		z-index: 99999;
+		overflow-y: scroll;
+	}
+	.mobile-window{
+		background: #fff;
+		text-align: left;
+		margin: 10px;
+		padding: 0 0 10px 0;
+	}
+	.mobile-window p, .mobile-window li{
+		padding: 0 10px;
+	}
+	.mobile-window h3{
+		text-transform: uppercase;
+		text-align: center;
+		color: #010101;
+		font-size: 24px;
+		font-family: Verdana;
+		font-weight: bold;
+		margin-top: 0;
+		padding: 0 10px;
+	}
+	.mobile-window .centered{
+		text-align: center;
+		margin: 0 auto;
+	}
+	.mobile-window .btn-window-close{
+		background-color:#ed7d31;
+		color:#fff;
+		width: 50px;
+		height: 50px;
+		float: right;
+		margin: 0 0 10px 100%;
+		text-align: center;
+		font-weight: bold;
+		font-size: 24px;
+		font-family: Verdana;
+		padding-top: 6px;
+		cursor: pointer;
 	}
 }
 
