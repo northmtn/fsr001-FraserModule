@@ -293,14 +293,19 @@ body {
 	height: 330px;
 	margin: 0px auto;
 }
-
 .video-player-container .ytplayer {
     margin-top: 26px;
 }
 
 /* Tool Popups */
 .tool-popup {
+
 	display: none;
+	z-index: 5;
+	padding-left: 30px;
+	padding-right: 30px;
+	top: -444px;
+	
 }
 
 .tool-popup .panel {
@@ -309,6 +314,8 @@ body {
 	border: 2px solid #888;
 	height: 493px;
 	border-radius: 12px;
+	box-shadow:0px 5px 12px #555;
+	
 	
 }
 
@@ -320,11 +327,23 @@ body {
 
 }
 
+.tool-popup .tool-title{
+	font-size: 42px;
+	font-family: "canterbold";
+	border-bottom: 1px solid;
+	border-width: 2px;
+	padding-bottom: 4px;
+	width: 240px;
+	margin: 25px auto 20px auto;
+	text-align: center;
+}
+
+
 .tool-popup #btn_popup_close.round-button {
 	width: 40px;
 	height: 40px;
 	top: -15px;
-	right: -3px;
+	right: 12px;
 	position: absolute;
 }
 
@@ -333,12 +352,28 @@ body {
 	font-size: 26px;
 }
 
+#orange-tool-popup .panel {
+	
+	height: 556px;
+	
+}
+
 #orange-tool-popup .tool-content {
 	
 	width: 100%;
 	height: 100%;
 	padding: 30px;
 	
+}
+
+#orange-tool-popup p.top {
+	text-align: center;
+	
+	padding-top: 0px;
+	font-weight: 800;
+	font-size: 17px;
+	width: 80%;
+	margin: -15px auto 20px auto;
 }
 
 #orange-tool-popup .tool-left {
@@ -382,7 +417,7 @@ body {
 	width: 0;
 	height: 0;
 	left: 34%;
-	top: 44px;
+	top: 97px;
 	border: 20px solid;
 	border-color: transparent #fff transparent transparent;
 
@@ -391,6 +426,7 @@ body {
 #orange-tool-popup .info-display {
 	
 	width: 64%;
+	height: 430px;
 	float: right;
 
 }
@@ -409,6 +445,38 @@ body {
 	
 }
 
+#navy-tool-popup #view-main {
+	
+	color: #fff;
+	text-align: center;
+	margin: 0px auto;
+	
+}
+
+#navy-tool-popup p {
+	
+	font-size: 20px;
+	font-weight: 600;
+	width: 85%;
+	margin: 0px auto;
+	
+}
+
+#navy-tool-popup .button-row {
+
+	margin: 0px auto;
+	background: red;
+	height: 133px;
+	width: 41%;
+
+}
+
+#navy-tool-popup .choice.button {
+	margin: 30%;
+	float: left;
+	background: gray;
+}
+
 #red-tool-popup .info-display,
 #green-tool-popup .info-display,
 #blue-tool-popup .info-display {
@@ -419,15 +487,16 @@ body {
 }
 
 #blue-tool-popup{
-	
 }
 #blue-tool-popup .info-display.left {
-	width: 57%;
+	width: 55%;
 	float: left;
+	margin-right: 0px;
 }
 #blue-tool-popup .info-display.right {
-	width: 34%;
+	width: 37%;
 	float: right;
+	margin-left: 0px;
 }
 
 #red-tool-popup h3,
