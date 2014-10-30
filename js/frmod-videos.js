@@ -30,7 +30,7 @@ function createPlayer(playerInfo) {
      height: playerInfo.height,
      width: playerInfo.width,
      videoId: playerInfo.videoId,
-     playerVars: { 'autoplay': 0, 'controls': 2, 'rel':0, 'showInfo':0 } //Disable related videos and extra info
+     playerVars: { 'autoplay': 0, 'controls': 2, 'rel':0, 'showInfo':0, 'wmode':"Opaque" } //Disable related videos and extra info
   });
   
 }

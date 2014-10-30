@@ -99,7 +99,7 @@ $( document ).ready( function() {
 		if (btnId.substring(0, 11) == "tool-orange") {
 			
 			//show info
-			var infoSection = btnId.substring(14);
+			var infoSection = btnId.substring(12);
 			$("#orange-tool-popup .info-display").children("div").hide();
 			$("#orange-tool-popup .info-display").children("div[id='info-"+infoSection+"']").show();
 			
