@@ -95,6 +95,13 @@ $( document ).ready( function() {
 			}
 		}
 		
+		//Handle blue tool polaroid selection
+		if (btnId.substring(0, 8) == "polaroid") {
+		
+			$(this).toggleClass('selected');
+			
+		}
+		
 		//Handle tool popup clicks	
 		if (btnId.substring(0, 11) == "tool-orange") {
 			
@@ -140,6 +147,9 @@ $( document ).ready( function() {
 			case "btn_dropdown_print":
 				printFiveThingsToKnow();
 			break;
+			case "print_photo_card":
+				printPhotoCard();
+			break;
 			case "btn_popup_close":
 				//Close open popup
 				$(this).closest('.tool-popup').hide();
@@ -168,6 +178,45 @@ $( document ).ready( function() {
 	
 	}
 		
+	function printPhotoCard() {
+	
+		//Set text
+		var printDiv = $("#hidden_printables_container #photo_card");
+		var selectedPhotos = $($("#stop_"+curStopId).find(".tool-popup #thumb-grid .thumb.selected").get().reverse());
+		
+		console.log('selectedPhotos:', $(selectedPhotos).length);
+		
+		var clonerDiv = $(printDiv).find("#cloner").first().show();
+		
+		$(printDiv).find(".photo-box:not(#cloner)").remove();//clear previous photos
+		
+		$(selectedPhotos).each( function(index){
+			
+			var newPhoto = $(clonerDiv).clone().insertAfter( $(clonerDiv) );
+			
+			console.log('newPhoto ', $(newPhoto).html());
+			
+			var newSrc = $(this).find("img").first().attr('src');
+			newSrc = newSrc.replace("polaroids-thumb", "polaroids-print");
+			console.log('newSrc', newSrc);
+			
+			$(newPhoto).find("img").attr('src', newSrc);
+			console.log('here c');
+			$(newPhoto).find("p").html($(this).find("p").html());
+			console.log('here d');
+			$(newPhoto).attr('id', 'photo_'+index);
+		});
+		
+		$(clonerDiv).hide();
+		
+		//Set style
+		$(printDiv).removeClass("orange red navy green blue").addClass( currentStopColor );
+		
+		//Print
+		$(printDiv).printThis();
+	
+	}
+	
 	function printFiveThingsToKnow() {
 				
 		//Set text
@@ -176,7 +225,7 @@ $( document ).ready( function() {
 		var fiveThings = $($("#stop_"+curStopId).find(".printables-dropdown p").get().reverse());
 				
 		$(printDiv).find("h3").text(titleTxt);
-		$(printDiv).find("p").remove();//clear previous list
+		$(printDiv).find("p:not(.footer)").remove();//clear previous list
 		$(fiveThings).each( function(){
 			$(this).clone().insertAfter( $(printDiv).find("h3") );
 		});
