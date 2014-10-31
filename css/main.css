@@ -726,12 +726,14 @@ body {
 	width: 100%;
 	height: 30px;
 	font-size: 8px;
+	margin-top: 50px;
+}
+.printable h2 {
+	font-size: 38px;
+	font-family: 'canterbold';
 }
 
 #photo_card {
-}
-#photo_card h2 {
-	font-size: 38px;
 }
 #photo_card .photo-grid {
 	margin: 0px auto;
@@ -746,7 +748,6 @@ body {
 	float: left;
 	width: 160px;
 	height: 160px;
-	background: gray;
 	margin: 20px;
 }
 

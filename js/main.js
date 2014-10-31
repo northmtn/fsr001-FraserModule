@@ -192,31 +192,31 @@ $( document ).ready( function() {
 		var printDiv = $("#hidden_printables_container #photo_card");
 		var selectedPhotos = $($("#stop_"+curStopId).find(".tool-popup #thumb-grid .thumb.selected").get().reverse());
 		
-		console.log('selectedPhotos:', $(selectedPhotos).length);
-		
-		var clonerDiv = $(printDiv).find("#cloner").first().show();
-		
-		$(printDiv).find(".photo-box:not(#cloner)").remove();//clear previous photos
-		
-		$(selectedPhotos).each( function(index){
+		$(printDiv).find(".photo-box").each( function(index){
 			
-			var newPhoto = $(clonerDiv).clone().insertAfter( $(clonerDiv) );
+			if (index < $(selectedPhotos).length){
 			
-			console.log('newPhoto ', $(newPhoto).html());
+				$(this).css('visibility', 'visible');
+				var selectedPhoto = $(selectedPhotos).eq(index);
+				
+				var newSrc = $(selectedPhoto).find("img").first().attr('src');
+				newSrc = newSrc.replace("polaroids-thumb", "polaroids-print");
+				
+				var title = $(selectedPhoto).find("p").html();
+				
+				$(this).find("img").attr('src', newSrc);
+				$(this).find("p").html( title );
 			
-			var newSrc = $(this).find("img").first().attr('src');
-			newSrc = newSrc.replace("polaroids-thumb", "polaroids-print");
-			console.log('newSrc', newSrc);
 			
-			$(newPhoto).find("img").attr('src', newSrc);
-			console.log('here c');
-			$(newPhoto).find("p").html($(this).find("p").html());
-			console.log('here d');
-			$(newPhoto).attr('id', 'photo_'+index);
+			} else {
+				$(this).css('visibility', 'hidden');
+			}
+			
+						
+			
+			
 		});
-		
-		$(clonerDiv).hide();
-		
+				
 		//Set style
 		$(printDiv).removeClass("orange red navy green blue").addClass( currentStopColor );
 		
