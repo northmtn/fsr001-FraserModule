@@ -311,7 +311,6 @@ body {
 	z-index: 5;
 	padding-left: 30px;
 	padding-right: 30px;
-	top: -444px;
 	
 }
 
@@ -462,7 +461,7 @@ body {
 
 #navy-tool-popup .tool-content h3 {
 	
-	font-family: 'canter';
+	font-family: 'canterbold';
 	font-size: 46px;
 	color: #fff;
 
@@ -601,7 +600,7 @@ body {
 }
 
 #blue-tool-popup .info-display h3{
-	font-family: 'canter';
+	font-family: 'canterbold';
 	font-size: 32px;
 }
 
@@ -693,7 +692,7 @@ body {
 #green-tool-popup-1 .info-display h3,
 #green-tool-popup-2 .info-display h3 {
 	font-size: 32px;
-	font-family: 'canter';
+	font-family: 'canterbold';
 	padding-top: 30px;
 }
 
@@ -711,6 +710,7 @@ body {
 	padding-top: 5px;
 	
 }
+
 
 
 /* Printables */
@@ -747,7 +747,7 @@ body {
 	width: 160px;
 	height: 160px;
 	background: gray;
-	margin: 40px;
+	margin: 20px;
 }
 
 

@@ -87,6 +87,14 @@ $( document ).ready( function() {
 			var popupId = btnId.substring(4);
 			
 			if(mode == "desktop"){
+				//shift popup on top of content
+				$("#"+popupId).css('top', 0);
+				$("#"+popupId).show();
+				
+				var topOffset = parseInt($("#"+popupId).position().top) - 235;
+
+				$("#"+popupId).css('top', -topOffset);
+				
 				$("#"+popupId).fadeIn();
 				return;
 			} else {
