@@ -91,6 +91,7 @@ $( document ).ready( function() {
 				return;
 			} else {
 				createMobileWindow(title, $("#"+popupId+"-mobile").html());
+				$(".mobile-window .my-gallery").swipeshow({autostart: false});
 				return;
 			}
 		}
@@ -251,4 +252,3 @@ $( document ).ready( function() {
 	$("#stop_intro").show();
 
 });
-
