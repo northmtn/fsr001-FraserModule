@@ -68,6 +68,8 @@ $( document ).ready( function() {
 			
 			var vidId = $(this).attr('data-vid-id');
 			launchVideo( vidId );
+			
+			
 			return;
 		}
 		

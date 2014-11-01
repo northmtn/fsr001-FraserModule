@@ -941,6 +941,9 @@ body {
 	display: none;
 }
 
+.stop_container.row {
+  overflow: hidden;
+}
 @media (max-width: 992px) {
 	.bubble-nav .panel, .bubble-nav .panel-heading {
 		height: auto;
@@ -970,9 +973,11 @@ body {
 		padding-top: 0px;
 	}
 	
-	.left-col h3.colored.centered, .video-player-container,
-	.panel .right-col h3, .panel .right-col .tag, .col-md-7{
-		display: none;
+	.stop_container.row{
+		margin: 0 !important;
+	}
+	.col-lg-5{
+		padding: 0 !important;
 	}
 	
 	.tri{
@@ -1065,6 +1070,32 @@ body {
 	}
 	.line-vertical{
 		padding: 0 5px 0 0;
+	}
+	.left-col h3.colored.centered, .video-player-container,
+	.panel .right-col h3, .panel .right-col .tag, .col-md-7{
+		
+	}
+}
+
+@media (max-width: 480px) {
+	.huge{
+		padding: 10px 5px 0 0;
+		width: 120px;
+		line-height: 1em;
+	}
+}
+
+@media (max-width: 420px) {
+	.huge{
+		float:none;
+		padding: 0;
+		width: auto;
+	}
+	.line-vertical{
+		display:none;
+	}
+	.line-horizontal{
+		display:inline;
 	}
 }
 
