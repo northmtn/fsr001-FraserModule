@@ -167,3 +167,13 @@ html.swipeshow-grabbed * {
  #placeholder{
 	 visibility:hidden;
  }
+ 
+ @media (max-width: 359px) {
+	.slideshow .dots{
+		width: 170px;
+		margin: 0 auto;
+	}
+	.slide .caption{
+		padding: 10px 0 60px 0;
+	}
+}

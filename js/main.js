@@ -13,7 +13,7 @@ $(function() {
         width = (this.window.innerWidth > 0) ? this.window.innerWidth : this.screen.width;
         height = (this.window.innerHeight > 0) ? this.window.innerHeight : this.screen.height;
         
-        if (width < 768) {
+        if (width < 992) {
             //updates for mobile
             if (mode=="desktop") {
             	//move content into mobile nav
@@ -63,11 +63,18 @@ $( document ).ready( function() {
 		
 		//Handle video playlist clicks		
 		if (btnId.substring(0, 7) == "vid_btn") {
-		
+			
 			$(this).addClass("selected").siblings().removeClass("selected");
 			
 			var vidId = $(this).attr('data-vid-id');
-			launchVideo( vidId );
+			
+			if(document.width > 556){
+				launchVideo( vidId );
+			} else{
+				var arr = vidId.split("/");
+				createMobileWindow("", $("#mobile-video").html(), true);				
+				$(".mobile-window #youtube").attr("src", vidId+"&autoplay=1&modestbranding=1&showinfo=0&rel=0");
+			}
 			
 			
 			return;
@@ -249,8 +256,14 @@ $( document ).ready( function() {
 	
 	}
 	
-	function createMobileWindow(title, html){
+	function createMobileWindow(title, html, video){
+		video = typeof video !== 'undefined' ? video : false;
+		
 		$("#frmod-page-wrapper").prepend('<div class="mobile-window-container"><div class="mobile-window"><div class="btn-window-close">X</div><h3>'+title+'</h3>' + html + '</div></div>');
+
+		if(video == true){
+			$(".mobile-window-container").addClass("video-fullscreen");
+		}
 		
 		$(".btn-window-close").on("click", function(event){
 			$(".mobile-window-container").remove();
