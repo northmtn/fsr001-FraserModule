@@ -87,6 +87,14 @@ $( document ).ready( function() {
 			var popupId = btnId.substring(4);
 			
 			if(mode == "desktop"){
+				//shift popup on top of content
+				$("#"+popupId).css('top', 0);
+				$("#"+popupId).show();
+				
+				var topOffset = parseInt($("#"+popupId).position().top) - 235;
+
+				$("#"+popupId).css('top', -topOffset);
+				
 				$("#"+popupId).fadeIn();
 				return;
 			} else {
@@ -181,6 +189,7 @@ $( document ).ready( function() {
 		
 	function printPhotoCard() {
 	
+<<<<<<< HEAD
 		//Set text
 		var printDiv = $("#hidden_printables_container #photo_card");
 		var selectedPhotos = $($("#stop_"+curStopId).find(".tool-popup #thumb-grid .thumb.selected").get().reverse());
@@ -210,6 +219,37 @@ $( document ).ready( function() {
 		
 		$(clonerDiv).hide();
 		
+=======
+		//Set text
+		var printDiv = $("#hidden_printables_container #photo_card");
+		var selectedPhotos = $($("#stop_"+curStopId).find(".tool-popup #thumb-grid .thumb.selected").get().reverse());
+		
+		$(printDiv).find(".photo-box").each( function(index){
+			
+			if (index < $(selectedPhotos).length){
+			
+				$(this).css('visibility', 'visible');
+				var selectedPhoto = $(selectedPhotos).eq(index);
+				
+				var newSrc = $(selectedPhoto).find("img").first().attr('src');
+				newSrc = newSrc.replace("polaroids-thumb", "polaroids-print");
+				
+				var title = $(selectedPhoto).find("p").html();
+				
+				$(this).find("img").attr('src', newSrc);
+				$(this).find("p").html( title );
+			
+			
+			} else {
+				$(this).css('visibility', 'hidden');
+			}
+			
+						
+			
+			
+		});
+				
+>>>>>>> origin/master
 		//Set style
 		$(printDiv).removeClass("orange red navy green blue").addClass( currentStopColor );
 		
