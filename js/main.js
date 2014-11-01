@@ -189,37 +189,6 @@ $( document ).ready( function() {
 		
 	function printPhotoCard() {
 	
-<<<<<<< HEAD
-		//Set text
-		var printDiv = $("#hidden_printables_container #photo_card");
-		var selectedPhotos = $($("#stop_"+curStopId).find(".tool-popup #thumb-grid .thumb.selected").get().reverse());
-		
-		console.log('selectedPhotos:', $(selectedPhotos).length);
-		
-		var clonerDiv = $(printDiv).find("#cloner").first().show();
-		
-		$(printDiv).find(".photo-box:not(#cloner)").remove();//clear previous photos
-		
-		$(selectedPhotos).each( function(index){
-			
-			var newPhoto = $(clonerDiv).clone().insertAfter( $(clonerDiv) );
-			
-			console.log('newPhoto ', $(newPhoto).html());
-			
-			var newSrc = $(this).find("img").first().attr('src');
-			newSrc = newSrc.replace("polaroids-thumb", "polaroids-print");
-			console.log('newSrc', newSrc);
-			
-			$(newPhoto).find("img").attr('src', newSrc);
-			console.log('here c');
-			$(newPhoto).find("p").html($(this).find("p").html());
-			console.log('here d');
-			$(newPhoto).attr('id', 'photo_'+index);
-		});
-		
-		$(clonerDiv).hide();
-		
-=======
 		//Set text
 		var printDiv = $("#hidden_printables_container #photo_card");
 		var selectedPhotos = $($("#stop_"+curStopId).find(".tool-popup #thumb-grid .thumb.selected").get().reverse());
@@ -249,7 +218,6 @@ $( document ).ready( function() {
 			
 		});
 				
->>>>>>> origin/master
 		//Set style
 		$(printDiv).removeClass("orange red navy green blue").addClass( currentStopColor );
 		
