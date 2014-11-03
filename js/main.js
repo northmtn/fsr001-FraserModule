@@ -42,10 +42,18 @@ $(function() {
 				});
 				
 				$(".mobile-window-container").remove();
+				$(".video-fullscreen").remove();
 				
         	}
 			mode = "desktop";
         }
+		
+		console.log(mode);
+		
+		if(videosInitialized == false){
+			videosInitialized = true;
+			initVideos();
+		}
 
     })
 })
@@ -68,7 +76,9 @@ $( document ).ready( function() {
 			
 			var vidId = $(this).attr('data-vid-id');
 			
-			if(document.width > 556){
+			console.log(width);
+			
+			if(width > 556){
 				launchVideo( vidId );
 			} else{
 				var arr = vidId.split("/");
@@ -160,6 +170,14 @@ $( document ).ready( function() {
 					$( this ).parent().find(".printables-dropdown").toggle();
 				} else{
 					createMobileWindow("5 Things To Know:", $( this ).parent().find(".printables-dropdown").html());
+					$(".mobile-window p").each(function(){
+						if($(this).html().length == 1){
+							$(this).remove();
+						}
+					});
+					$(".mobile-window p").replaceWith(function(){
+						return $("<li />").append($(this).contents());
+					});
 				}
 			break;
 			case "btn_dropdown_print":
@@ -273,5 +291,4 @@ $( document ).ready( function() {
 	//Set initial view
 	$(".stop_container").hide();
 	$("#stop_intro").show();
-
 });
