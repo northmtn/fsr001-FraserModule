@@ -81,8 +81,9 @@ $( document ).ready( function() {
 				$("#stop_"+curStopId).find(".video-player-container .player-poster").hide();
 			} else{
 				var arr = vidId.split("/");
+				var id = arr[arr.length-1];
 				createMobileWindow("", $("#mobile-video").html(), true);				
-				$(".mobile-window #youtube").attr("src", vidId+"&autoplay=1&modestbranding=1&showinfo=0&rel=0");
+				$(".mobile-window #youtube").attr("src", "http://www.youtube.com/embed/"+id+"?autoplay=1&modestbranding=1&showinfo=0&rel=0");
 			}
 			
 			
@@ -297,7 +298,7 @@ $( document ).ready( function() {
 	function createMobileWindow(title, html, video){
 		video = typeof video !== 'undefined' ? video : false;
 		
-		$("#frmod-page-wrapper").prepend('<div class="mobile-window-container"><div class="mobile-window"><div class="btn-window-close">X</div><h3>'+title+'</h3>' + html + '</div></div>');
+		$("#frmod-page-wrapper").prepend('<div class="mobile-window-container"><div class="mobile-window"><div class="btn-window-close '+currentStopColor+'">X</div><h3>'+title+'</h3>' + html + '</div></div>');
 
 		if(video == true){
 			$(".mobile-window-container").addClass("video-fullscreen");
