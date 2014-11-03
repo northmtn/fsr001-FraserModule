@@ -51,7 +51,6 @@ function pauseCurrentPlayer () {
 
 function launchVideo( youtubeVidId ){
 	
-	console.log("launchVideo: " + youtubeVidId);
 	ytplayers[curStopId-1].loadVideoByUrl( youtubeVidId );
 	
 }
