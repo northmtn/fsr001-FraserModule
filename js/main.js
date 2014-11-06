@@ -244,7 +244,7 @@ $( document ).ready( function() {
 				var newSrc = $(selectedPhoto).find("img").first().attr('src');
 				newSrc = newSrc.replace("polaroids-thumb", "polaroids-print");
 
-				var title = $(selectedPhoto).find("p").html();
+				var title = $(selectedPhoto).find("p").attr('print-title');
 
 				$(this).find("img").attr('src', newSrc);
 				$(this).find("p").html( title );
