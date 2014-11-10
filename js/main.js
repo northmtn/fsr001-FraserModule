@@ -178,6 +178,7 @@ $( document ).ready( function() {
 					$(".mobile-window p").replaceWith(function(){
 						return $("<li />").append($(this).contents());
 					});
+					$(".mobile-window li").wrapAll("<ul />");
 				}
 			break;
 			case "btn_dropdown_print":

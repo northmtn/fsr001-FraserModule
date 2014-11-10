@@ -29,6 +29,10 @@ body {
 		padding: 0 30px;
 		border-left: 1px solid #e7e7e7;
 	}
+	.mobile-window ul{
+		margin-left: 100px;
+		margin-down: 50px;
+	}
 }
 
 @media (min-width: 1200px) {
@@ -1104,7 +1108,7 @@ body {
 		text-transform: uppercase;
 		text-align: center;
 		color: #010101;
-		font-size: 24px;
+		font-size: 36px;
 		font-family: Verdana;
 		font-weight: bold;
 		margin-top: 0;
