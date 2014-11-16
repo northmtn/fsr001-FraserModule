@@ -127,8 +127,12 @@ $( document ).ready( function() {
 
 				return;
 			} else {
-				createMobileWindow(title, $("#"+popupId+"-mobile").html());
-				$(".mobile-window .my-gallery").swipeshow({autostart: false});
+				if($("#"+popupId+"-mobile").find(".my-gallery").length){
+					createMobileWindow(title, $("#"+popupId+"-mobile").html());
+					$(".mobile-window .my-gallery").swipeshow({autostart: false});
+				} else{
+					createMobileWindow(title, $("#"+popupId+"-mobile").html(), false, true);
+				}
 				return;
 			}
 		}
@@ -180,7 +184,7 @@ $( document ).ready( function() {
 				if(mode == "desktop"){
 					$( this ).parent().find(".printables-dropdown").toggle();
 				} else{
-					createMobileWindow("5 Things To Know:", $( this ).parent().find(".printables-dropdown").html());
+					createMobileWindow("5 Things To Know:", $( this ).parent().find(".printables-dropdown").html(), false, true);
 					$(".mobile-window p").each(function(){
 						if($(this).html().length == 1){
 							$(this).remove();
@@ -312,8 +316,9 @@ $( document ).ready( function() {
 
 	}
 
-	function createMobileWindow(title, html, video){
+	function createMobileWindow(title, html, video, tapToExit){
 		video = typeof video !== 'undefined' ? video : false;
+		tapToExit = typeof tapToExit !== 'undefined' ? tapToExit : false;
 
 		$("#frmod-page-wrapper").prepend('<div class="mobile-window-container"><div class="mobile-window"><div class="btn-window-close '+currentStopColor+'">X</div><h3>'+title+'</h3>' + html + '</div></div>');
 
@@ -324,6 +329,21 @@ $( document ).ready( function() {
 		$(".btn-window-close").on("click", function(event){
 			$(".mobile-window-container").remove();
 		});
+		
+		if(tapToExit == true){
+			var overLink = false;
+			$(".mobile-window a").on("mouseover", function(){
+				overLink = true;
+			});
+			$(".mobile-window a").on("mouseout", function(){
+				overLink = false;
+			});
+			$(".mobile-window").click(function(){
+				if(overLink == false){
+					$(".btn-window-close").trigger("click");
+				}
+			});
+		}
 	}
 
 	//Set initial view
