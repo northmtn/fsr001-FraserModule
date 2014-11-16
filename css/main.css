@@ -146,6 +146,14 @@ body {
 	padding-top: 18px;
 	margin-left: 120px;
 	
+}
+
+#stop_intro p{
+	
+	font-size: 16px;
+	margin: 0px 50px;
+
+	margin-top:-10px;
 	
 }
 
@@ -295,7 +303,7 @@ body {
 }
 
 .video-list .list-group-item.selected {
-	background-color: #eee;
+	background-color: #dfdfdf;
 }
 
 .video-player-container{

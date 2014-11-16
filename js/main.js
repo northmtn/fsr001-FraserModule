@@ -71,9 +71,16 @@ $( document ).ready( function() {
 		//Handle video playlist clicks
 		if (btnId.substring(0, 7) == "vid_btn") {
 
-			$(this).addClass("selected").siblings().removeClass("selected");
+			var btn = this; 
 
-			var vidId = $(this).attr('data-vid-id');
+			//click from poster-thumb. simulate click on first quote.
+			if ($(this).hasClass("player-poster")===true) {
+				btn = $('.stop_container.'+currentStopColor).find('.video-list #vid_btn').first();
+			}
+
+			$(btn).addClass("selected").siblings().removeClass("selected");
+
+			var vidId = $(btn).attr('data-vid-id');
 
 			if(width > 556){
 				launchVideo( vidId );
