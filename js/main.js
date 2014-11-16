@@ -38,7 +38,7 @@ $(function() {
         		//move content outside of nav
         		$(".stop_container").insertAfter( "#stop_intro" );
 				$(".col-md-5").each(function(){
-					$printable = $(this).find(".panel-default:eq( 1 )");
+					$printable = $(this).find("#btn_printables").parent();
 					$(this).parent().find(".col-md-7").first().append($printable);
 				});
 
@@ -114,6 +114,10 @@ $( document ).ready( function() {
 				$(p).css('top', -topOffset);
 				$(p).hide();
 				$(p).fadeIn('fast');
+
+				pauseCurrentPlayer();
+				$('.video-player-container #'+currentStopColor+'-player').css('visibility', 'hidden');
+
 				return;
 			} else {
 				createMobileWindow(title, $("#"+popupId+"-mobile").html());
@@ -190,6 +194,7 @@ $( document ).ready( function() {
 			case "btn_popup_close":
 				//Close open popup
 				$(this).closest('.tool-popup').hide();
+				$('.video-player-container #'+currentStopColor+'-player').css('visibility', 'visible');
 			break;
 			default:
 
@@ -248,6 +253,7 @@ $( document ).ready( function() {
 				var title = $(selectedPhoto).find("p").attr('print-title');
 
 				$(this).find("img").attr('src', newSrc);
+				$(this).find("img").attr('alt', title);
 				$(this).find("p").html( title );
 
 			} else {
@@ -264,6 +270,7 @@ $( document ).ready( function() {
 		//Wait for all print images to finish loadig before printing
 		var $images = $(printDiv).find("img[src!='']");
 		var loaded_images_count = 0;
+
 		$images.load(function(){
 			loaded_images_count++;
 			if (loaded_images_count == $images.length) {
