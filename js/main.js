@@ -237,6 +237,9 @@ $( document ).ready( function() {
 		$(".stop_container").hide();
 		$("#stop_"+stopId).fadeIn('slow');
 
+		//show default poster thumb
+		$("#stop_"+stopId).find(".video-player-container .player-poster").show();
+
 		pauseCurrentPlayer();
 
 		currentStopColor = stopColor;
