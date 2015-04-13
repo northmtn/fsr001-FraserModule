@@ -13,11 +13,11 @@ function initVideos(){
 	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 	
 	playerInfoList = [	{id:'orange-player',height:'248',width:'440',videoId:''},
-							{id:'navy-player',height:'248',width:'440',videoId:''},
-							{id:'red-player',height:'248',width:'440',videoId:''},
-							{id:'blue-player',height:'248',width:'440',videoId:''},
-							{id:'green-player',height:'248',width:'440',videoId:''}
-							];
+						{id:'navy-player',height:'248',width:'440',videoId:''},
+						{id:'red-player',height:'248',width:'440',videoId:''},
+						{id:'blue-player',height:'248',width:'440',videoId:''},
+						{id:'green-player',height:'248',width:'440',videoId:''}
+						];
 
 }
 
@@ -38,9 +38,19 @@ function createPlayer(playerInfo) {
 	 height: playerInfo.height,
 	 width: playerInfo.width,
 	 videoId: playerInfo.videoId,
+	 events: {
+            'onStateChange': onPlayerStateChange
+          },
 	 playerVars: { 'autoplay': 0, 'controls': 2, 'rel':0, 'showInfo':0, 'wmode':"Opaque" } //Disable related videos and extra info
   });
   
+}
+
+function onPlayerStateChange(event) {
+	if (event.data == YT.PlayerState.ENDED) {
+		//Video finished, show poster thumbnail
+		// $("#stop_"+curStopId).find(".video-player-container .player-poster").show();
+	}
 }
 
 function pauseCurrentPlayer () {

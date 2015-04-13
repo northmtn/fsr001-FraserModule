@@ -84,8 +84,7 @@ $( document ).ready( function() {
 
 			if(width > 556){
 				launchVideo( vidId );
-				//hide poster thumb
-				$("#stop_"+curStopId).find(".video-player-container .player-poster").hide();
+				togglePoster(false);
 			} else{
 				var arr = vidId.split("/");
 				var id = arr[arr.length-1];
@@ -238,13 +237,26 @@ $( document ).ready( function() {
 		$("#stop_"+stopId).fadeIn('slow');
 
 		//show default poster thumb
-		$("#stop_"+stopId).find(".video-player-container .player-poster").show();
+		togglePoster(true);
 
 		pauseCurrentPlayer();
 
 		currentStopColor = stopColor;
 		curStopId = stopId;
 
+	}
+
+	function togglePoster(show){
+		if (show){
+			$("#stop_"+curStopId).find(".video-player-container .player-poster").show();
+			$('.video-player-container #'+currentStopColor+'-player').css('width', 0);
+			setTimeout(function(){ //IE8 Quirk
+				$('.video-player-container #'+currentStopColor+'-player').css('width', 0);
+			}, 200);
+		}else{
+			$("#stop_"+curStopId).find(".video-player-container .player-poster").hide();
+			$('.video-player-container #'+currentStopColor+'-player').css('width', 440);
+		}
 	}
 
 	function printPhotoCard() {
