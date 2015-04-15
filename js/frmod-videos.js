@@ -41,7 +41,7 @@ function createPlayer(playerInfo) {
 	 events: {
             'onStateChange': onPlayerStateChange
           },
-	 playerVars: { 'autoplay': 0, 'controls': 2, 'rel':0, 'showInfo':0, 'wmode':"Opaque" } //Disable related videos and extra info
+	 playerVars: { 'autoplay': 0, 'controls': 0, 'rel':0, 'showInfo':0, 'modestbranding':1, 'wmode':"Opaque" } //Disable related videos and extra info
   });
   
 }
@@ -51,6 +51,7 @@ function onPlayerStateChange(event) {
 		//Video finished, show poster thumbnail
 		// $("#stop_"+curStopId).find(".video-player-container .player-poster").show();
 	}
+
 }
 
 function pauseCurrentPlayer () {
@@ -59,8 +60,22 @@ function pauseCurrentPlayer () {
 	
 }
 
+var mobilePlayback = false;
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+	mobilePlayback = true;
+}
+
 function launchVideo( youtubeVidId ){
-	
-	ytplayers[curStopId-1].loadVideoByUrl( youtubeVidId );
-	
+
+	if (mobilePlayback==true) {
+		//Mobile does not allow playback to start 
+		//without direct user interaction, so we 
+		//cue the video instead, then the user starts
+		//playback by clicking big red play button.
+		ytplayers[curStopId-1].cueVideoByUrl( youtubeVidId );
+	} else {
+		//On desktop browsers we can start right away.
+		ytplayers[curStopId-1].loadVideoByUrl( youtubeVidId );
+	}
+
 }

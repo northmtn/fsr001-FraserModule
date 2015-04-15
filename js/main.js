@@ -89,9 +89,8 @@ $( document ).ready( function() {
 				var arr = vidId.split("/");
 				var id = arr[arr.length-1];
 				createMobileWindow("", $("#mobile-video").html(), true);
-				$(".mobile-window #youtube").attr("src", "http://www.youtube.com/embed/"+id+"?autoplay=1&modestbranding=1&showinfo=0&rel=0");
+				$(".mobile-window #youtube").attr("src", "http://www.youtube.com/embed/"+id+"?autoplay=1&modestbranding=1&showinfo=0&rel=0&wmode=transparent");
 			}
-
 
 			return;
 		}
@@ -339,11 +338,39 @@ $( document ).ready( function() {
 
 		if(video == true){
 			$(".mobile-window-container").addClass("video-fullscreen");
+
+
+			/*
+			//This is a hack to cincumvent an issue with yt player blocking our close button after fs playback
+			var hasLaunchedVideo = false;
+			setInterval(function(){
+				console.log("interval");
+				if ( hasLaunchedVideo == false && $(".mobile-window-container #youtube").contents().find(".html5-video-container").first().hasClass("playing-mode")==true){
+					hasLaunchedVideo = true;
+					console.log("hasLaunched");
+				}
+
+				if (hasLaunchedVideo == true) {
+					if ($(".mobile-window-container #youtube").contents().find(".html5-video-container").first().hasClass("cued-mode")==true || $(".mobile-window-container #youtube").contents().find(".html5-video-container").first().hasClass("ended-mode")==true){
+						console.log("EXIT");
+					$(".btn-window-close").trigger("click");
+					}
+				}
+
+			}, 700);
+			*/
+
 		}
 
 		$(".btn-window-close").on("click", function(event){
 			$(".mobile-window-container").remove();
 		});
+
+		$(".mobile-window-container").on("click", function(event){
+			$(".mobile-window-container").remove();
+		});
+
+
 		
 		if(tapToExit == true){
 			var overLink = false;
@@ -356,6 +383,7 @@ $( document ).ready( function() {
 			$(".mobile-window").click(function(){
 				if(overLink == false){
 					$(".btn-window-close").trigger("click");
+					$(".mobile-window-container").remove();
 				}
 			});
 		}
