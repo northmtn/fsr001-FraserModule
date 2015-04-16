@@ -41,7 +41,7 @@ function createPlayer(playerInfo) {
 	 events: {
             'onStateChange': onPlayerStateChange
           },
-	 playerVars: { 'autoplay': 0, 'controls': 0, 'rel':0, 'showInfo':0, 'modestbranding':1, 'wmode':"Opaque" } //Disable related videos and extra info
+	 playerVars: { 'autoplay': 0, 'controls': 2, 'rel':0, 'showInfo':0, 'modestbranding':1, 'wmode':"Opaque" } //Disable related videos and extra info
   });
   
 }

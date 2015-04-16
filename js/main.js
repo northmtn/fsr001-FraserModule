@@ -5,6 +5,7 @@
 var mode = "desktop";
 var currentStopColor = "gray";
 var curStopId = -1;
+var is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
 
 //On Window Resize....
 $(function() {
@@ -71,7 +72,7 @@ $( document ).ready( function() {
 		//Handle video playlist clicks
 		if (btnId.substring(0, 7) == "vid_btn") {
 
-			var btn = this; 
+			var btn = this;
 
 			//click from poster-thumb. simulate click on first quote.
 			if ($(this).hasClass("player-poster")===true) {
@@ -248,13 +249,18 @@ $( document ).ready( function() {
 	function togglePoster(show){
 		if (show){
 			$("#stop_"+curStopId).find(".video-player-container .player-poster").show();
-			$('.video-player-container #'+currentStopColor+'-player').css('width', 0);
-			setTimeout(function(){ //IE8 Quirk
+			if (!is_firefox){
 				$('.video-player-container #'+currentStopColor+'-player').css('width', 0);
-			}, 200);
+				setTimeout(function(){ //IE8 Quirk
+					$('.video-player-container #'+currentStopColor+'-player').css('width', 0);
+				}, 200);
+			}
+			
 		}else{
 			$("#stop_"+curStopId).find(".video-player-container .player-poster").hide();
-			$('.video-player-container #'+currentStopColor+'-player').css('width', 440);
+			if (!is_firefox){
+				$('.video-player-container #'+currentStopColor+'-player').css('width', 440);
+			}
 		}
 	}
 
@@ -334,31 +340,20 @@ $( document ).ready( function() {
 		video = typeof video !== 'undefined' ? video : false;
 		tapToExit = typeof tapToExit !== 'undefined' ? tapToExit : false;
 
-		$("#frmod-page-wrapper").prepend('<div class="mobile-window-container"><div class="mobile-window"><div class="btn-window-close '+currentStopColor+'">X</div><h3>'+title+'</h3>' + html + '</div></div>');
+		$("#frmod-page-wrapper").append('<div class="mobile-window-container"><div class="mobile-window"><div class="btn-window-close '+currentStopColor+'">X</div><h3>'+title+'</h3>' + html + '</div></div>');
 
 		if(video == true){
 			$(".mobile-window-container").addClass("video-fullscreen");
 
 
-			/*
-			//This is a hack to cincumvent an issue with yt player blocking our close button after fs playback
-			var hasLaunchedVideo = false;
-			setInterval(function(){
-				console.log("interval");
-				if ( hasLaunchedVideo == false && $(".mobile-window-container #youtube").contents().find(".html5-video-container").first().hasClass("playing-mode")==true){
-					hasLaunchedVideo = true;
-					console.log("hasLaunched");
-				}
-
-				if (hasLaunchedVideo == true) {
-					if ($(".mobile-window-container #youtube").contents().find(".html5-video-container").first().hasClass("cued-mode")==true || $(".mobile-window-container #youtube").contents().find(".html5-video-container").first().hasClass("ended-mode")==true){
-						console.log("EXIT");
-					$(".btn-window-close").trigger("click");
-					}
-				}
-
-			}, 700);
-			*/
+			//This is a hack to circumvent an issue with yt player blocking our close button after fs playback
+			// setInterval(function(){
+			// 	$("#myxCloseButton").remove();
+			// 	$("#frmod-page-wrapper").append('<div id="myxCloseButton" style="backround:#ffff00; top:10px; left:10px; position:fixed; z-index:9999999999; padding:20px; margin:20px; width:100px; height100px;">CLOSE<br>CLOSE<br>CLOSE<br>CLOSE</div>');
+			// 	$("#myxCloseButton").on("click", function(event){
+			// 		$(".mobile-window-container").remove();
+			// 	});
+			// }, 750);
 
 		}
 
@@ -371,7 +366,7 @@ $( document ).ready( function() {
 		});
 
 
-		
+
 		if(tapToExit == true){
 			var overLink = false;
 			$(".mobile-window a").on("mouseover", function(){
